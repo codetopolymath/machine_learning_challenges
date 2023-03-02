@@ -1,0 +1,38 @@
+Load the demand history and EV infrastructure datasets using pandas.
+Create a distance matrix based on the coordinates of demand points and supply points.
+Use a suitable time series model (e.g. ARIMA, LSTM) to forecast EV charging demand for 2019 and 2020.
+Calculate the demand-supply matrix for 2019 and 2020 using the forecasted demand and EV infrastructure details.
+Define the objective function that calculates the overall cost based on the three cost components mentioned in the problem statement.
+Define the constraints.
+Use an optimization algorithm (e.g. Linear Programming, Gradient Descent) to find the optimal EV infrastructure for 2019 and 2020 that minimizes the overall cost under the given constraints.
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+To calculate the demand, supply, and demand-supply gap, we can use the given datasets as follows:
+
+Demand:
+We have the EV charging demand at each demand point, which is provided in the Demand_History.csv file. We can use this data to estimate the demand for the years 2019 and 2020 by extrapolating the trend from the previous years.
+
+Supply:
+We have the details of the existing EV infrastructure of the year 2018 in the Existing_EV_infrastructure_2018.csv file. This includes the number of slow and fast charging stations at each supply point, the total parking slots available, and the maximum charging capacity that can be given from a supply point. We can use this data to estimate the available supply for the years 2019 and 2020.
+
+Demand-Supply Gap:
+We can calculate the demand-supply gap by comparing the demand and supply estimates for each year. If the demand is greater than the supply, then there is a gap that needs to be filled. We can also calculate how much demand of a demand point is satisfied by each supply point using the distance matrix provided in the dataset.
+
+The calculation of demand, supply, and demand-supply gap can be summarized as follows:
+
+Demand:
+
+Extrapolate the trend in EV charging demand from the Demand_History.csv file for the years 2019 and 2020.
+Supply:
+
+Calculate the maximum charging capacity that can be provided from each supply point using the maximum charging capacity and distance matrix provided in the Existing_EV_infrastructure_2018.csv file.
+Estimate the available supply at each supply point by multiplying the number of slow and fast charging stations by their respective charging capacities.
+Calculate the total available supply by summing up the available supply at each supply point.
+Demand-Supply Gap:
+
+For each demand point, calculate how much demand can be satisfied by each supply point using the distance matrix provided in the Existing_EV_infrastructure_2018.csv file.
+Assign the demand to the supply point that satisfies the most demand, subject to the maximum charging capacity of the supply point.
+Calculate the total demand that can be satisfied by summing up the demand assigned to each supply point.
+Calculate the demand-supply gap by subtracting the total demand from the total available supply.
